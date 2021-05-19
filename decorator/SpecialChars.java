@@ -26,7 +26,7 @@ public class SpecialChars extends PasswordDecorator {
     StringBuilder newPassword = new StringBuilder(passwordBeginning.getPassword());
     for (int i = 0; i<newPassword.length();i++) {
       if(rng.nextInt(100) < 33) {
-        newPassword.insert(i, specialCharacters[rng.nextInt(specialCharacters.length)]);
+        newPassword.insert(i+1, specialCharacters[rng.nextInt(specialCharacters.length)]);
       }
     }
     return newPassword.toString();
