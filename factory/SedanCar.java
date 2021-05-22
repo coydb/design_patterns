@@ -1,11 +1,8 @@
-import java.util.ArrayList;
-
 /**
  * A sedan Car
  * @author Coy Burke
  */
 public class SedanCar extends Car {
-  protected ArrayList<Accessories> accessories;
 
   /**
    * Paramaterized Constructor

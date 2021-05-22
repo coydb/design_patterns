@@ -1,11 +1,8 @@
-import java.util.ArrayList;
-
 /**
  * A luxury Car
  * @author Coy Burke
  */
 public class LuxuryCar extends Car {
-  protected ArrayList<Accessories> accessories;
   
   /**
    * Paramaterized Constructor
