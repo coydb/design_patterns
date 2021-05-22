@@ -1,3 +1,7 @@
+/**
+ * An enumeration of Car Accessories
+ * @author Coy Burke
+ */
 public enum Accessories {
   SPORTS_SEATS,
   WINDOW_TINT,
