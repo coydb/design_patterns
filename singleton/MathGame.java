@@ -14,12 +14,13 @@ public class MathGame {
   private String[] operands = {"+", "-", "*", "/"};
 
   /**
-   * Default Constructor
-   * Initializes the Random object and Scanner object.
+   * Initializes the Random object and Scanner object
+   * and prints a welcome message.
    */
   private MathGame() {
     rand = new Random();
     reader = new Scanner(System.in);
+    System.out.println("Let's have fun with math!");
   }
 
   /**
@@ -43,7 +44,6 @@ public class MathGame {
     boolean playAgain = true;
     String userInput = "";
 
-    System.out.println("Let's have fun with math!");
     while (playAgain) {
       System.out.print("(P)lay or (Q)uit: ");
       userInput = reader.nextLine().toLowerCase();
