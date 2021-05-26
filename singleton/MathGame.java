@@ -2,18 +2,32 @@ import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * A standalone Math Game
+ * @author Coy Burke
+ */
 public class MathGame {
   private static MathGame mathGame;
-  private int score;
+  private int score = 0;
   private Random rand;
   private Scanner reader;
   private String[] operands = {"+", "-", "*", "/"};
 
-  private MathGame(){
+  /**
+   * Default Constructor
+   * Initializes the Random object and Scanner object.
+   */
+  private MathGame() {
     rand = new Random();
     reader = new Scanner(System.in);
   }
 
+  /**
+   * Creates a new MathGame if one does not exist,
+   * or provides access to the current instance if
+   * one already exists. 
+   * @return the current instance of MathGame
+   */
   public static MathGame getInstance() {
     if(mathGame == null) {
       mathGame = new MathGame();
@@ -21,17 +35,21 @@ public class MathGame {
     return mathGame;
   }
 
+  /**
+   * Starts a new round of the math game and continues
+   * until the user chooses to quit.
+   */
   public void play() {
     boolean playAgain = true;
     String userInput = "";
 
     System.out.println("Let's have fun with math!");
     while (playAgain) {
-      System.out.println("(P)lay or (Q)uit:");
+      System.out.print("(P)lay or (Q)uit: ");
       userInput = reader.nextLine().toLowerCase();
-      switch(userInput) {
+      switch (userInput) {
         case "p":
-          if(playRound()) {
+          if (playRound()) {
             score++;
           }
           break;
@@ -43,43 +61,62 @@ public class MathGame {
           break;
       }
     }
-    System.out.println("You won " + score + " games!");
+    System.out.print("You won " + score);
+    System.out.print(score == 1 ? " game!\n" : " games!\n");
     System.out.println("Goodbye.");
   }
 
+  /**
+   * Generates a random math question, prompts the user for a guess,
+   * then determines if the user won the round or not.
+   * @return True if the user won the round,
+   *         False if the user lost the round
+   */
   private boolean playRound() {
     int leftNumber = rand.nextInt(100)+1;
     int rightNumber = rand.nextInt(100)+1;
     String operand = operands[rand.nextInt(4)];
 
-    System.out.println("Round answer to 1 decimal place.");
-    System.out.print(leftNumber + operand + rightNumber + "=");
+    System.out.println("\nRound answer to 1 decimal place.");
+    System.out.print(leftNumber + operand + rightNumber + " = ");
     double userGuess = reader.nextDouble();
     reader.nextLine();
     return checkGuess(leftNumber, rightNumber, operand, userGuess);
   }
 
+  /**
+   * Performs the appropriate calculation based on the operator, 
+   * and determines if the user's guess is correct.
+   * @param leftNumber An int representing the number on the left of the operator
+   * @param rightNumber An int representing the number on the right of the operator
+   * @param operator A String representing the operator
+   * @param userGuess A double representing the user's guess
+   * @return True if the user's guess is correct,
+   *         False if the user's guess is incorrect.
+   */
   private boolean checkGuess(int leftNumber, int rightNumber, String operator, double userGuess) {
     double correctAnswer =0.0;
-    switch(operator) {
+    String correct = "Correct!";
+    String incorrect = "Incorrect. Correct answer: ";
+    switch (operator) {
       case "+":
-        correctAnswer = leftNumber+rightNumber;
+        correctAnswer = leftNumber + rightNumber;
         break;
       case "-":
-        correctAnswer = leftNumber-rightNumber;
+        correctAnswer = leftNumber - rightNumber;
         break;
       case "*":
-        correctAnswer = leftNumber*rightNumber;
+        correctAnswer = leftNumber * rightNumber;
         break;
       case "/":
-        correctAnswer = ((double)leftNumber/(double)rightNumber);
+        correctAnswer = ((double)leftNumber / (double)rightNumber);
         var rounder = new DecimalFormat("#.#");
         correctAnswer = Double.valueOf(rounder.format(correctAnswer));
         break;
       default:
         break;
     }
-    System.out.println((userGuess == correctAnswer) ? "Correct!" : "Incorrect. Correct answer is: "+correctAnswer);
+    System.out.println((userGuess == correctAnswer) ? correct : incorrect + correctAnswer);
     return (userGuess == correctAnswer);
   }
 }
