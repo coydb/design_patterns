@@ -101,7 +101,7 @@ public class MusicBox {
    * Strings
    */
   public void playSong(String songName, ArrayList<String> lyrics) {
-    System.out.println("Playing: "+songName);
+    System.out.println("\nPlaying: "+songName);
     for(String currentLine : lyrics) {
       try {
         TimeUnit.MILLISECONDS.sleep(1000);
@@ -110,5 +110,6 @@ public class MusicBox {
       }
       System.out.println(currentLine);
     }
+    System.out.print("\n");
   }
 }

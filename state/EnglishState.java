@@ -70,6 +70,7 @@ public class EnglishState implements State {
    * Sets the MusicBox's state to French
    */
   public void pressFrenchButton() {
+    System.out.println("Switching to French");
     musicBox.setState(musicBox.getFrenchState());
   }
 
@@ -77,6 +78,7 @@ public class EnglishState implements State {
    * Sets the MusicBox's state to Spanish
    */
   public void pressSpanishButton() {
+    System.out.println("Switching to Spanish");
     musicBox.setState(musicBox.getSpanishState());
   }
 }
