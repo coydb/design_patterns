@@ -1,3 +1,5 @@
+package decorator;
+
 /**
  * A password decorator that replaces certain letters with symbols.
  * @author Coy Burke

@@ -1,3 +1,5 @@
+package singleton;
+
 public class MathDriver {
     public MathDriver() {
 

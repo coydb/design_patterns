@@ -1,3 +1,5 @@
+package decorator;
+
 /**
  * An abstract class for storing passwords.
  * @author Coy Burke

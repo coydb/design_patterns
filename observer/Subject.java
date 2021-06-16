@@ -1,3 +1,5 @@
+package observer;
+
 /**
  * An interface for a Subject
  * @author Coy Burke

@@ -1,3 +1,5 @@
+package decorator;
+
 /**
  * An abstract class for decorating passwords.
  * @author Coy Burke

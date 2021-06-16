@@ -1,3 +1,5 @@
+package factory;
+
 /**
  * A factory for creating Cars
  * @author Coy Burke

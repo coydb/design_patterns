@@ -1,3 +1,5 @@
+package decorator;
+
 import java.util.Scanner;
 
 public class PasswordProgram {
