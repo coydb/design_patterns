@@ -2,6 +2,10 @@ package state;
 
 import java.util.ArrayList;
 
+/**
+ * A Spanish state for a MusicBox
+ * @author Coy Burke
+ */
 public class SpanishState implements State {
   private MusicBox musicBox;
   private String starTitle = "Parpadea, Parpadea, Estrellita";
@@ -23,10 +27,17 @@ public class SpanishState implements State {
     "Si usted esta feliz apaluda las fuerte"
   };
 
+  /**
+   * Constructs the SpanishState
+   * @param box A MusicBox
+   */
   public SpanishState(MusicBox box) {
     musicBox = box;
   }
   
+  /**
+   * Plays the song Twinkle Twinkle Little Star in Spanish
+   */
   public void pressStarButton() {
     ArrayList<String> outLyrics = new ArrayList<String>();
     for (String line : starLyrics) {
@@ -35,6 +46,10 @@ public class SpanishState implements State {
     musicBox.playSong(starTitle, outLyrics);
   }
 
+  /**
+   * Plays the song If You're Happy and You Know It in 
+   * Spanish
+   */
   public void pressHappyButton() {
     ArrayList<String> outLyrics = new ArrayList<String>();
     for (String line : happyLyrics) {
@@ -43,14 +58,24 @@ public class SpanishState implements State {
     musicBox.playSong(happyTitle, outLyrics);
   }
 
+  /**
+   * Sets the MusicBox's state to English
+   */
   public void pressEnglishButton() {
     musicBox.setState(musicBox.getEnglishState());
   }
 
+  /**
+   * Sets the MusicBox's state to French
+   */
   public void pressFrenchButton() {
     musicBox.setState(musicBox.getFrenchState());
   }
 
+  /**
+   * Displays a message stating that the MusicBox
+   * is already set to Spanish
+   */
   public void pressSpanishButton() {
     System.out.println("You are already in the Spanish mode.");
   }
