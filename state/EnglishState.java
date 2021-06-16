@@ -2,7 +2,7 @@ package state;
 
 import java.util.ArrayList;
 
-public class EnglishState extends SongConstants implements State {
+public class EnglishState implements State {
   private MusicBox musicBox;
   private String starTitle = "Twinkle, Twinkle, Little Star";
   private String happyTitle = "If You're Happy and You Know It";
